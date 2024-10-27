@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Kaouther Portfolio</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Kaouther <span>Belkefoul</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+                    <a href="#home">Home</a>
+                </div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
+                    <a href="#tps">TPS</a>
+                </div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                    <a href="#project">Project</a>
+                </div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="#home">HOME</a>
+                <a href="#tps">TPS</a>
+                <a href="#project">Project</a>
+                <a href="#contact">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="main-container">
+            <div class="image" data-aos="zoom-out" data-aos-duration="1500">
+                <img src="image.png" alt="">
+            </div>
+            <div class="content">
+                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Hey I'm <span>Kaouther</span></h1>
+                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">I am a second-year master's student in computer science, specializing in data engineering and web technologies.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="tps">
+        <h2 class="tps-title">Practical Works</h2>
+        <div class="tps-container" data-aos="fade-up" data-aos-duration="1500">
+            <div class="tp-card">
+                <h3>TP1</h3>
+                <button onclick="location.href='TP1.blend'">Download Blender File</button>
+    <button onclick="window.open('TP1.png')">View Render Image</button>
+            </div>
+            <div class="tp-card">
+                <h3>TP2</h3>
+                <button onclick="downloadFile('TP2.blend')">Download Blender File</button>
+                <button onclick="viewRenderImage('TP2.png')">View Render Image</button>
+            </div>
+            <div class="tp-card">
+                <h3>TP3</h3>
+                <button onclick="downloadFile('TP3.blend')">Download Blender File</button>
+                <button onclick="viewRenderImage('TP3.png')">View Render Image</button>
+            </div>
+            <div class="tp-card">
+                <h3>TP4</h3>
+                <button onclick="downloadFile('TP4.blend')">Download Blender File</button>
+                <button onclick="viewRenderImage('TP4.png')">View Render Image</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="project">
+        <div class="project-container" data-aos="fade-up" data-aos-duration="1500">
+            <center><h2>Projects</h2></center> 
+            <p>Currently, there are no projects or presentations available.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-container" data-aos="fade-up" data-aos-duration="1500">
+            <h2>Contact Me</h2>
+            <div class="social-links">
+                <a href="#" data-aos="fade-up" data-aos-duration="1500"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="#" data-aos="fade-up" data-aos-duration="1500"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                <a href="#" data-aos="fade-up" data-aos-duration="1500"><i class="fa-brands fa-twitter"></i> Twitter</a>
+            </div>
+            <p>Feel free to reach out to me through any of the platforms above!</p>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 0 });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        function downloadFile(fileName) {
+            console.log(`Downloading: ${fileName}`); // Ajoutez ceci pour voir quel fichier vous essayez de télécharger
+            const link = document.createElement("a");
+            link.href = `Portfolio/${fileName}`;
+            link.download = fileName;
+            link.click();
+        }
+        
+        function viewRenderImage(imageName) {
+            console.log(`Opening image: ${imageName}`); // Ajoutez ceci pour vérifier l'image que vous ouvrez
+            const imageUrl = `Portfolio/${imageName}`;
+            window.open(imageUrl, "_blank");
+        }
+        
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
